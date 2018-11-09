@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styling/style.css">
+</head>
+
+<body>
+    <div class="contain container-fluid">
+        <div class="row" id="first-row"></div>
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">
+                <div class="my-pallete container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-6-color" id="red"></div>
+                        <div class="col-xs-6 col-xs-6-color" id="blue"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-6-color" id="yellow"></div>
+                        <div class="col-xs-6 col-xs-6-color" id="green"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-6-color" id="purple"></div>
+                        <div class="col-xs-6 col-xs-6-color" id="pink"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-6-color" id="orange"></div>
+                        <div class="col-xs-6 col-xs-6-color" id="brown"></div>
+                    </div>
+                    <div class="erase">
+                        <button type="button" id="eraser">Erase</button>
+                        <button type="button" id="brushSize">Bruse Size</button>
+                    </div>
+                    <div class="saveLoad">
+                        <button type="button" id="save">Save</button>
+                        <button type="button" id="load">Load</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-6">
+                <div class="my-canvas" id="canvas-id">
+                </div>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
