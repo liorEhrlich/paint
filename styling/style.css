@@ -45,10 +45,8 @@ head,body{
 
 .my-circle{
     position: fixed;
-    width: 10px;
-      height: 10px;
-      border-radius: 25px;
-      background: red;
+    border-radius: 25px;
+    background: red;
 }
 
 #red{
