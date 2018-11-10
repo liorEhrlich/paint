@@ -76,9 +76,28 @@ var changeBrushSize = function () {
             brushSize = 5
             break;
         case 5:
-            brushSize=10
+            brushSize = 10
             break;
     }
+}
+
+function onetime(node, type, callback) {
+	node.addEventListener(type, function(e) {
+		e.target.removeEventListener(e.type, arguments.callee);
+		return callback(e);
+	});
+
+}
+
+var colorBG = function (event) {
+    event.target.setAttribute("style", `background-color:${chosenColor}`);
+    document.querySelector("#colorBG").style.border = "1px solid grey"
+    document.querySelector("#colorBG").removeEventListener("mousedown", colorBG);
+}
+
+var colorBGEventListener = function () {
+    onetime(document.querySelector(".my-canvas"), "mousedown", colorBG);
+    document.querySelector("#colorBG").style.border = "2px solid black"
 }
 
 document.querySelector(".my-pallete").addEventListener("click", colorPicker);
@@ -91,8 +110,14 @@ document.querySelector(".my-canvas").addEventListener("mouseup", stopFunction);
 
 document.querySelector("#eraser").addEventListener("click", erase);
 
+document.querySelector("#brushSize").addEventListener("click", changeBrushSize);
+
 document.querySelector("#clear").addEventListener("click", clear);
 
-document.querySelector("#brushSize").addEventListener("click", changeBrushSize);
+document.querySelector("#colorBG").addEventListener("click", colorBGEventListener);
+
+
+
+
 
 
