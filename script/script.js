@@ -60,23 +60,10 @@ var erase = function () {
     chosenColor = "white";
 }
 
-var save = function () {
-    var savedProject = document.querySelectorAll("#canvas-id div");
-    savedProject = JSON.stringify(savedProject);
-    localStorage.setItem("savedDrawing", savedProject);
-}
-
-var load = function () {
-    var loadProject = localStorage.getItem("savedDrawing");
-    loadProject = JSON.parse(loadProject);
-    var parent = document.getElementById("canvas-id");
-    var childElements = document.querySelectorAll("#canvas-id div");
-    for (var i = 0; i < childElements; i++) {
-        var child = document.querySelector("#canvas-id div");
-        parent.removeChild(child);
-    }
-    for (var j = 0; j < loadProject.length; i++) {
-        parent.appendChild(loadProject[i]);
+var clear = function () {
+    var childElements = document.querySelector("#canvas-id");
+    while (childElements.hasChildNodes()) {
+        childElements.removeChild(childElements.childNodes[0]);
     }
 }
 
@@ -102,9 +89,9 @@ document.querySelector(".my-canvas").addEventListener("mousedown", function () {
 });
 document.querySelector(".my-canvas").addEventListener("mouseup", stopFunction);
 
-document.querySelector("#save").addEventListener("click", save);
+document.querySelector("#eraser").addEventListener("click", erase);
 
-document.querySelector("#load").addEventListener("click", load);
+document.querySelector("#clear").addEventListener("click", clear);
 
 document.querySelector("#brushSize").addEventListener("click", changeBrushSize);
 
