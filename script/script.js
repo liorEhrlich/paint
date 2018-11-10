@@ -1,9 +1,15 @@
-var chosenColor = "black";
+var chosenColor = "blue";
 var idCounter = 0;
 var flag = true;
 var brushSize = 10;
 
 var colorPicker = function (e) {
+    if (chosenColor !== "white" && e.target.className == "col-xs-6 col-xs-6-color"){
+        document.querySelector(`#${chosenColor}`).style.border = "1px solid grey";
+    }
+    else if(chosenColor == "white") {
+        document.querySelector("#eraser").style.border = "1px solid grey";
+    }
     switch (e.target.id) {
         case "red":
             chosenColor = "red"
@@ -29,6 +35,9 @@ var colorPicker = function (e) {
         case "brown":
             chosenColor = "brown"
             break;
+    }
+    if (chosenColor !== "white" && e.target.className == "col-xs-6 col-xs-6-color"){    
+    e.target.style.border = "2px solid black";
     }
 }
 
@@ -57,6 +66,7 @@ var stopFunction = function () {
 }
 
 var erase = function () {
+    document.querySelector(`#${chosenColor}`).style.border = "1px solid grey";
     chosenColor = "white";
 }
 
@@ -65,6 +75,7 @@ var clear = function () {
     while (childElements.hasChildNodes()) {
         childElements.removeChild(childElements.childNodes[0]);
     }
+    document.querySelector("#my-canvas").setAttribute("style", "background-color:white");
 }
 
 var changeBrushSize = function () {
@@ -82,10 +93,10 @@ var changeBrushSize = function () {
 }
 
 function onetime(node, type, callback) {
-	node.addEventListener(type, function(e) {
-		e.target.removeEventListener(e.type, arguments.callee);
-		return callback(e);
-	});
+    node.addEventListener(type, function (e) {
+        e.target.removeEventListener(e.type, arguments.callee);
+        return callback(e);
+    });
 
 }
 
